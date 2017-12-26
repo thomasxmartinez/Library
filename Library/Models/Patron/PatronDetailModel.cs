@@ -21,10 +21,12 @@ namespace Library.Models.Patron
 		public string Address { get; set; }
 		public DateTime MemberSince { get; set; }
 		public string Telephone { get; set; }
+		public string ImageUrl { get; set; }
 		public string HomeLibraryBranch { get; set; }
+		public Boolean Paid { get; set; }
 		public decimal OverdueFees { get; set; }
 		public IEnumerable<Checkout> AssetsCheckout { get; set; }
-		public IEnumerable<CheckoutHistory> CHeckoutHistory{ get; set;}
+		public IEnumerable<CheckoutHistory> CheckoutHistory{ get; set;}
 		public IEnumerable<Hold> Holds { get; set; }
     }
 }

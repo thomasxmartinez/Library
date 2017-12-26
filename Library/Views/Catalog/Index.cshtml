@@ -4,15 +4,15 @@
 }
 
 <div id="assets">
-	<h3>Library Catalog</h3>
+	<h3>Catalog</h3>
 	<div id="assetsTable">
 		<table class="table table-condensed" id="catalogIndexTable">
 			<thead>
 				<tr>
-					<th>Image</th>
+					<th>Cover</th>
 					<th>Title</th>
-					<th>Author / Director</th>
-					@*@<th>Dewey Call Number</th>*@
+					<th>Author</th>
+					<th>Why we like it</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,7 +28,7 @@
 						</td>
 						<td class="">@asset.Title</td>
 						<td class="">@asset.AuthorOrDirector</td>
-						@*<td class="">@asset.Dewey</td>*@
+						<td class="">@asset.Description</td>
 					</tr>
 				}
 			</tbody>

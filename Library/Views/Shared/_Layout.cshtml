@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Library System</title>
+    <title>@ViewData["Title"] - Checkout System</title>
     @Html.Raw(JavaScriptSnippet.FullScript)
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-blue.min.css" />
@@ -18,7 +18,7 @@
         <header class="custom-header mdl-layout__header mdl-layout__header--waterfall">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title logo"><a href="/">Library System</a></span>
+                <span class="mdl-layout-title logo"><a href="/">Checkout System</a></span>
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
@@ -36,7 +36,7 @@
                 <a class="mdl-navigation__link" asp-controller="Home" asp-action="Index">Home</a>
                 <a class="mdl-navigation__link" asp-controller="Catalog" asp-action="Index">Catalog</a>
                 <a class="mdl-navigation__link" asp-controller="Patron" asp-action="Index">Team Member</a>
-                <a class="mdl-navigation__link" asp-controller="Branch" asp-action="Index"></a>
+                <a class="mdl-navigation__link" asp-controller="Branch" asp-action="Index">----</a>
             </nav>
         </div>
         <div class="page-content">

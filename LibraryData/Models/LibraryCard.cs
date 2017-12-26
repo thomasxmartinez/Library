@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
 
 namespace LibraryData.Models
 {
-    public class LibraryCard
-    {
-        public int Id { get; set; }
+	public class LibraryCard
+	{
+		public int Id { get; set; }
 
-        public decimal Fees { get; set; }
-        
-        public DateTime Created { get; set; }
+		[Display(Name = "Overdue Fees")]
+		public decimal Fees { get; set; }
 
-        public virtual IEnumerable<Checkout> Checkouts { get; set; }
-    }
+		[Display(Name = "Card Issued Date")]
+		public DateTime Created { get; set; }
+
+		[Display(Name = "Materials on Loan")]
+		public virtual IEnumerable<Checkout> Checkouts { get; set; }
+	}
 }

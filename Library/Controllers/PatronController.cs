@@ -25,6 +25,8 @@ namespace Library.Controllers
 				Id = p.Id,
 				FirstName = p.FirstName,
 				LastName = p.LastName,
+				Paid = p.Paid,
+				ImageUrl = p.ImageUrl,
 				LibraryCardId = p.LibraryCard.Id,
 				OverdueFees = p.LibraryCard.Fees,
 				HomeLibraryBranch = p.HomeLibraryBranch.Name
@@ -52,7 +54,7 @@ namespace Library.Controllers
 				LibraryCardId = patron.LibraryCard.Id,
 				Telephone = patron.TelephoneNumber,
 				AssetsCheckout = _patron.GetCheckouts(id).ToList() ?? new List<Checkout>(),
-				CHeckoutHistory = _patron.GetCheckoutHistory(id),
+				CheckoutHistory = _patron.GetCheckoutHistory(id).ToList() ?? new List<CheckoutHistory>(),
 				Holds = _patron.GetHolds(id)
 			};
 

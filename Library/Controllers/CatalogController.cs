@@ -29,6 +29,7 @@ namespace Library.Controllers
                     AuthorOrDirector = _assets.GetAuthorOrDirector(result.Id),
                     Dewey = _assets.GetDeweyIndex(result.Id),
                     Title = result.Title,
+					Description = result.Description,
                     Type = _assets.GetType(result.Id)
 
                 });
@@ -84,6 +85,7 @@ namespace Library.Controllers
 				ImageUrl = asset.ImageUrl,
 				Title = asset.Title,
 				LibraryCardId = "",
+				PatronName = _checkouts.GetCurrentCheckoutPatron(id),
 				IsCheckedOut = _checkouts.IsCheckedOut(id)
 			};
 			return View(model);

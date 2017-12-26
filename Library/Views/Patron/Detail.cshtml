@@ -24,20 +24,21 @@
 					<h2>@Model.FirstName @Model.LastName</h2>
 					<div class="patronContact">
 						<div id="patronTel">Library Card ID: @Model.LibraryCardId</div>
-						<div id="patronAddress">Address: @Model.Address</div>
-						<div id="patronTel">Telephone: @Model.Telephone</div>
+						@*<div id="patronAddress">Address: @Model.Address</div>
+			<div id="patronTel">Telephone: @Model.Telephone</div>*@
 						<div id="patronDate">Member Since: @Model.MemberSince</div>
-						<div id="patronLibrary">Home Library: @Model.HomeLibraryBranch</div>
+						<div id="patronLibrary">Organization: @Model.HomeLibraryBranch</div>
 						@if (@Model.OverdueFees > 0)
-						{
-							<div id="patronHasFees">Current Fees Due: $@Model.OverdueFees</div>
-						}
-						else
-						{
-							<div id="patronNoFees">No Fees Currently Due.</div>
+		{
+				<div id="patronHasFees">Current Fees Due: $@Model.OverdueFees</div>
+}
+else
+{
+				<div id="patronNoFees">No Fees Currently Due.</div>
 
-						}
+}
 					</div>
+					@*<div id="patronTel">Books Read: @Model.CheckoutHistory</div>*@
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -48,17 +49,21 @@
 						<ul>
 							@foreach (var checkout in @Model.AssetsCheckout)
 							{
-								<li>
-									@checkout.LibraryAsset.Title - (Library Asset ID: @checkout.LibraryAsset.Id)
-									<ul>
-										<li>
-											Since: @checkout.Since
-										</li>
-										<li>
-											Due: @checkout.Until
-										</li>
-									</ul>
-								</li>
+							<li>
+								@checkout.LibraryAsset.Title - (Library Asset ID: @checkout.LibraryAsset.Id
+								<ul>
+									<li>
+										Since: @checkout.Since
+									</li>
+									<li>
+										Due: @checkout.Until
+									</li>
+									<li>
+										<img src="@checkout.LibraryAsset.ImageUrl" class="imageCell" />
+
+									</li>
+								</ul>
+							</li>
 							}
 						</ul>
 					</div>

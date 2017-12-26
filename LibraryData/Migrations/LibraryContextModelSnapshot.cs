@@ -34,8 +34,6 @@ namespace LibraryData.Migrations
 
                     b.Property<int>("OpenTime");
 
-                    b.Property<string>("Title");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BranchId");
@@ -73,6 +71,8 @@ namespace LibraryData.Migrations
                     b.Property<DateTime?>("CheckedIn");
 
                     b.Property<DateTime>("CheckedOut");
+
+                    b.Property<string>("ImageUrl");
 
                     b.Property<int>("LibraryAssetId");
 
@@ -113,6 +113,9 @@ namespace LibraryData.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<decimal>("Cost");
+
+                    b.Property<string>("Description")
+                        .IsRequired();
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
@@ -189,19 +192,29 @@ namespace LibraryData.Migrations
 
                     b.Property<string>("Address");
 
+                    b.Property<int?>("CheckoutHistoryId");
+
                     b.Property<DateTime>("DateOfBirth");
 
                     b.Property<string>("FirstName");
 
                     b.Property<int?>("HomeLibraryBranchId");
 
+                    b.Property<string>("ImageUrl");
+
                     b.Property<string>("LastName");
 
                     b.Property<int?>("LibraryCardId");
 
+                    b.Property<bool>("Paid");
+
                     b.Property<string>("TelephoneNumber");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CheckoutHistoryId")
+                        .IsUnique()
+                        .HasFilter("[CheckoutHistoryId] IS NOT NULL");
 
                     b.HasIndex("HomeLibraryBranchId");
 
@@ -233,8 +246,7 @@ namespace LibraryData.Migrations
                     b.Property<string>("Author")
                         .IsRequired();
 
-                    b.Property<string>("DeweyIndex")
-                        .IsRequired();
+                    b.Property<string>("DeweyIndex");
 
                     b.Property<string>("ISBN")
                         .IsRequired();
@@ -314,6 +326,10 @@ namespace LibraryData.Migrations
 
             modelBuilder.Entity("LibraryData.Models.Patron", b =>
                 {
+                    b.HasOne("LibraryData.Models.CheckoutHistory", "CheckoutHistory")
+                        .WithOne("Patron")
+                        .HasForeignKey("LibraryData.Models.Patron", "CheckoutHistoryId");
+
                     b.HasOne("LibraryData.Models.LibraryBranch", "HomeLibraryBranch")
                         .WithMany("Patrons")
                         .HasForeignKey("HomeLibraryBranchId");

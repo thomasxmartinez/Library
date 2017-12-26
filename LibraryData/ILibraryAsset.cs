@@ -15,6 +15,7 @@ namespace LibraryData
         string GetType(int id);
         string GetTitle(int id);
         string GetIsbn(int id);
+		string GetDescription(int id);
 
         LibraryBranch GetCurrentLocation(int id);
     }
