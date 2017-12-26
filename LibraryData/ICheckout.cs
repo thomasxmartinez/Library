@@ -25,5 +25,6 @@ namespace LibraryData
 		void MarkLost(int assetId);
         void MarkFound(int assetId);
 		void CheckoutItem(int assetId, int libraryCardId);
+		string GetCurrentCheckoutPatronImage(int id);
 	}
 }

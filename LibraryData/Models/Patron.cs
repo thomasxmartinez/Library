@@ -12,8 +12,11 @@ namespace LibraryData.Models
         public string Address { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string TelephoneNumber { get; set; }
+		public string ImageUrl { get; set; }
+		public bool Paid { get; set; }
 
-        public virtual LibraryCard LibraryCard { get; set; }
+		public virtual LibraryCard LibraryCard { get; set; }
         public virtual LibraryBranch HomeLibraryBranch { get; set; }
+		public virtual CheckoutHistory CheckoutHistory { get; set; }
     }
 }

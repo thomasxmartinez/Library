@@ -25,7 +25,11 @@ namespace LibraryData.Models
         [Required]
         public int NumberOfCopies { get; set; }
 
+		[Required]
+		public string Description { get; set; }
+
         [Required]
         public virtual LibraryBranch Location { get; set; }
+
     }
 }

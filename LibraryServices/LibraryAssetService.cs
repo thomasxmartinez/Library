@@ -31,9 +31,10 @@ namespace LibraryServices
 
         public LibraryAsset GetById(int id)
         {
-            return
-            GetAll()
-                .FirstOrDefault(asset => asset.Id == id);
+			return _context.LibraryAssets
+					.Include(asset => asset.Status)
+					.Include(asset => asset.Location)
+					.FirstOrDefault(asset => asset.Id == id);
         }
 
         public LibraryBranch GetCurrentLocation(int id)
@@ -89,5 +90,12 @@ namespace LibraryServices
                 ?? "Unknown";
 
         }
+
+		public string GetDescription(int id)
+		{
+			return _context.LibraryAssets.FirstOrDefault(a => a.Id == id).Description;
+
+		}
+
     }
 }
