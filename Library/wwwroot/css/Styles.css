@@ -68,7 +68,7 @@
 }
 
 #catalog {
-	background: url('/images/books.jpeg') bottom right 15% no-repeat #555;
+	background: url('/images/books.jpeg')no-repeat #555;
 }
 
 #catalogIndexTable {
@@ -115,6 +115,11 @@
 }
 
 .imageCell {
+	width: 128px;
+	padding: 10px;
+}
+
+.checkoutCell {
 	width: 128px;
 	padding: 10px;
 }

@@ -14,6 +14,9 @@ namespace LibraryData.Models
 		public LibraryCard LibraryCard { get; set; }
 
 		[Required]
+		public Patron Patron { get; set; }
+
+		[Required]
 		public DateTime CheckedOut { get; set; }
 
 		public DateTime? CheckedIn { get; set; }
