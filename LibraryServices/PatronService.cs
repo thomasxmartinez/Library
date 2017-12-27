@@ -42,6 +42,7 @@ namespace LibraryServices
 			return _context.CheckoutHistories
 				.Include(co => co.LibraryCard)
 				.Include(co => co.LibraryAsset)
+				.Include(co => co.Patron)
 				.Where(co => co.LibraryCard.Id == cardId)
 				.OrderByDescending(co => co.CheckedOut);
 		}

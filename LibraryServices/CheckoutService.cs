@@ -38,6 +38,7 @@ namespace LibraryServices
 			return _context.CheckoutHistories
 				.Include(h => h.LibraryAsset)
 				.Include(h => h.LibraryCard)
+				.Include(h => h.Patron)
 				.Where(h => h.LibraryAsset.Id == id);
 		}
 
@@ -167,6 +168,10 @@ namespace LibraryServices
 				.Include(c => c.Checkouts)
 				.FirstOrDefault(c => c.Id == libraryCardId);
 
+			var patron = _context.Patrons
+				.Include(p => p.LibraryCard)
+				.FirstOrDefault(P => P.LibraryCard.Id == libraryCardId);
+
 			var checkout = new Checkout
 			{
 				LibraryAsset = item,
@@ -181,7 +186,8 @@ namespace LibraryServices
 			{
 				CheckedOut = now,
 				LibraryAsset = item,
-				LibraryCard = libraryCard
+				LibraryCard = libraryCard,
+				Patron = patron
 			};
 
 			_context.Add(checkoutHistory);
