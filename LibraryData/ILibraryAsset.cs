@@ -1,11 +1,9 @@
 ﻿using LibraryData.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LibraryData
 {
-    public interface ILibraryAsset
+	public interface ILibraryAsset
     {
         IEnumerable<LibraryAsset> GetAll();
         LibraryAsset GetById(int id);
