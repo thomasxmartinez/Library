@@ -24,7 +24,17 @@
 					<td>@patron.FirstName</td>
 					<td>@patron.LibraryCardId</td>
 					<td>@patron.OverdueFees</td>
-					<td>@patron.Paid</td>
+					<td>
+						@if (@patron.Paid == true)
+	{
+					<i class="fa fa-check-circle-o fa-4x text-center" aria-hidden="true" style="color:green"></i>
+}
+else
+{
+					<i class="fa fa-times-circle-o fa-4x text-center" aria-hidden="true" style="color:red"></i>
+
+}
+					</td>
 				</tr>
 			}
 		</tbody>
